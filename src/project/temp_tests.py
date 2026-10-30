@@ -1,5 +1,5 @@
-from descriptive_functions import get_data, get_category_count
-from patient_info import Patient
+from src.project.descriptive_functions import get_data, get_category_count
+from src.project.patient_info import Patient
 
 FILENAME = "../data/lung_cancer_dataset.csv"
 

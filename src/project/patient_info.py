@@ -1,5 +1,5 @@
 # Patient Class 
-from descriptive_functions import get_data
+from src.project.descriptive_functions import get_data
 
 class Patient: 
     """Represents a patient from the lung cancer dataset."""
