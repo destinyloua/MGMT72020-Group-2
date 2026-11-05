@@ -1,4 +1,6 @@
 import pandas as pd
+import numpy as np
+import statistics as stats
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -10,6 +12,18 @@ class DescriptiveSummary:
         """Returns a count of the number of patients in each category."""
         return self.data[category].value_counts(dropna=True)
     
+    def calc_mean(self, category, df):
+        """Calculates the mean of a given category."""
+        return np.mean(self.data[category])
+    
+    def calc_median(self, category, df):
+        """Calculates the median of a given category."""
+        return np.median(self.data[category])
+    
+    def calc_mode(self, category, df):
+        """Calculates the mode of a given category."""
+        return stats.mode(self.data[category].tolist())[0][0] if not self.data[category].mode().empty else None
+
     def gender_pie_chart(self):
         """Generates a pie chart for gender distribution."""
         gender_count = self.get_category_count("Gender", self.data)
