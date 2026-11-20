@@ -16,8 +16,13 @@ FILENAME = PROJECT_ROOT / "data" / "lung_cancer_dataset.csv"
 class TestLoadData(unittest.TestCase):
 
     def test_load_data(self):
-        """Checks that the data is loaded correctly by confirming data shape."""
+        """Checks that the data is loaded correctly from csv by confirming data shape."""
         df = l.get_data(FILENAME)
+        assert df.shape == (2000, 46)       # Expecting 2000 rows and 46 columns 
+
+    def test_load_from_db(self):
+        """Checks that the data is loaded correctly from db by confirming data shape."""
+        df = l.get_lung_cancer_data()
         assert df.shape == (2000, 46)       # Expecting 2000 rows and 46 columns 
 
     def test_category_count(self): 
