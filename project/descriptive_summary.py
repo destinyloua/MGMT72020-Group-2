@@ -22,7 +22,7 @@ class DescriptiveSummary:
     
     def calc_mode(self, category, df):
         """Calculates the mode of a given category."""
-        return stats.mode(self.data[category].tolist())[0][0] if not self.data[category].mode().empty else None
+        return stats.mode(self.data[category].tolist()) if not self.data[category].mode().empty else None
 
     def gender_pie_chart(self):
         """Generates a pie chart for gender distribution."""
