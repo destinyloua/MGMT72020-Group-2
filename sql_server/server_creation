@@ -83,8 +83,8 @@ data.to_sql("lung_cancer", conn, if_exists="replace", index=False)
 
 #cursor.executemany(insert_records, contents)
 
-# select_all = "SELECT * FROM lung_cancer"
-# rows = cursor.execute(select_all).fetchall()
+select_all = "SELECT * FROM lung_cancer"
+rows = cursor.execute(select_all).fetchall()
 
 preview = "SELECT * FROM lung_cancer LIMIT 1"
 get_preview = cursor.execute(preview).fetchall()
