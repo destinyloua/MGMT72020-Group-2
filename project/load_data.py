@@ -1,9 +1,18 @@
+import sqlite3
 import pandas as pd
 
-def get_data(filename): 
+def get_lung_cancer_data(): 
+    con = sqlite3.connect("../data/lung_cancer.db")
+    data = pd.read_sql_query("SELECT * from lung_cancer", con)
+    con.close()
+    return data
+
+def get_data(filename):
     """Reads csv file and returns a dataframe."""
     data = pd.read_csv(filename)
     return data 
+
+
 
 # def create_patients(data):
 #     """Returns a list of patient objects."""
