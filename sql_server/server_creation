@@ -18,7 +18,7 @@ FILENAME = PROJECT_ROOT / "data" / "lung_cancer_dataset.csv"
 
 data = get_data(FILENAME)
 
-conn = sqlite3.connect('lung_cancer.db')
+conn = sqlite3.connect('data/lung_cancer.db')
 
 cursor = conn.cursor()
 
