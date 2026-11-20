@@ -7,9 +7,10 @@ def get_lung_cancer_data():
     con.close()
     return data
 
-    #"""Reads csv file and returns a dataframe."""
-    #data = pd.read_csv(filename)
-    #return data 
+def get_data(filename):
+    """Reads csv file and returns a dataframe."""
+    data = pd.read_csv(filename)
+    return data 
 
 
 
