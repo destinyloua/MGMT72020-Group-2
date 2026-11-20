@@ -1,5 +1,4 @@
 import sqlite3
-import csv
 import sys
 from pathlib import Path
 import pandas as pd
@@ -11,14 +10,9 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from project.load_data import get_data
 FILENAME = PROJECT_ROOT / "data" / "lung_cancer_dataset.csv"
 
-# def get_data(filename): 
-#     """Reads csv file and returns a dataframe."""
-#     data = pd.read_csv(filename)
-#     return data 
-
 data = get_data(FILENAME)
 
-conn = sqlite3.connect('lung_cancer.db')
+conn = sqlite3.connect('data/lung_cancer.db')
 
 cursor = conn.cursor()
 
@@ -73,10 +67,6 @@ CREATE TABLE IF NOT EXISTS lung_cancer (
     Survived INTEGER)'''
 
 
-# file = open(data)
-
-# contents = csv.reader(file)
-
 #insert_records = 'INSERT INTO lung_cancer VALUES (?)'
 data.to_sql("lung_cancer", conn, if_exists="replace", index=False)
 
@@ -88,10 +78,6 @@ rows = cursor.execute(select_all).fetchall()
 
 preview = "SELECT * FROM lung_cancer LIMIT 1"
 get_preview = cursor.execute(preview).fetchall()
-
-# Output to the console screen
-# for r in rows:
-#     print(r)
 
 print(f"{get_preview}")
 conn.close()
