@@ -14,15 +14,15 @@ class DescriptiveSummary:
     
     def calc_mean(self, category, df):
         """Calculates the mean of a given category."""
-        return np.mean(self.data[category])
+        return np.mean(df[category])
     
     def calc_median(self, category, df):
         """Calculates the median of a given category."""
-        return np.median(self.data[category])
+        return np.median(df[category])
     
     def calc_mode(self, category, df):
         """Calculates the mode of a given category."""
-        return stats.mode(self.data[category].tolist()) if not self.data[category].mode().empty else None
+        return stats.mode(df[category].tolist()) if not df[category].mode().empty else None
 
     def gender_pie_chart(self):
         """Generates a pie chart for gender distribution."""
